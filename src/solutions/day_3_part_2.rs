@@ -37,19 +37,17 @@ pub fn execute(filepath: String){
             }
 
             // If I must collect and don't need to skip this window
-            if collect_do && i >= ignore_index{
-                // Check for mul([\d{1,3},\d{1,3}],..)
-                if re.is_match(&word){
-                    // println!("Found a mul at position {}", i);
-                    // operate and save on result variable
-                    for (_, [number_1, number_2]) in re.captures_iter(&word).map(|c| c.extract()) {
-                        result += number_1.parse::<i64>().unwrap()*number_2.parse::<i64>().unwrap();
-                    }
-                    // here I'm tracking the end of this window
-                    // skipping the window entirely after detection 
-                    // so we don't get duplicate matches.
-                    ignore_index = i+window_size;
+            // And it's a mul match
+            if collect_do && i >= ignore_index && re.is_match(&word){
+                // println!("Found a mul at position {}", i);
+                // operate and save on result variable
+                for (_, [number_1, number_2]) in re.captures_iter(&word).map(|c| c.extract()) {
+                    result += number_1.parse::<i64>().unwrap()*number_2.parse::<i64>().unwrap();
                 }
+                // here I'm tracking the end of this window
+                // skipping the window entirely after detection 
+                // so we don't get duplicate matches.
+                ignore_index = i+window_size;
             }
     });
     println!("Result is {}", result);
