@@ -25,3 +25,5 @@ Cargo.lock
 /data/
 /src/data/
 /target
+
+*.txt
