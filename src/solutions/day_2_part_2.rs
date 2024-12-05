@@ -1,4 +1,5 @@
 use std::{fs::File, io::{BufRead, BufReader}};
+use num_traits::Signed;
 
 #[derive(PartialEq, Debug)]
 enum ReportStatus{
@@ -13,11 +14,14 @@ enum NumberSignal{
     ZERO
 }
 
-fn get_number_signal(n:i32) -> NumberSignal{
-    if n<0{
+// Making this function generic was just for fun. 
+// This function acceps any number type that is signed and 
+// comparable with lt, le, gt, and ge
+fn get_number_signal<T>(n:T) -> NumberSignal where T: Signed + PartialOrd{
+    if n < T::zero() {
         NumberSignal::NEGATIVE
     }
-    else if n>0{
+    else if n > T::zero(){
         NumberSignal::POSITIVE
     }
     else{

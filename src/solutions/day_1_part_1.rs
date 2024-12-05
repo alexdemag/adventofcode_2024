@@ -1,8 +1,8 @@
 use std::{fs::File, io::{BufRead, BufReader}};
 
-fn main() {
+pub fn execute(filename: String) {
     // Read file
-    let file = File::open("./src/input.txt").expect("Unable to open file");
+    let file = File::open(filename).expect("Unable to open file");
     // Read file row by row without loading it entirely into memory.
     let buf_reader_lines = BufReader::new(file).lines();
 

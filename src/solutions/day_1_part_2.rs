@@ -1,9 +1,9 @@
 use std::{fs::File, io::{BufRead, BufReader}};
 use std::collections::HashMap;
 
-fn main() {
+pub fn execute(filepath:String) {
     // Read file
-    let file = File::open("./src/input.txt").expect("Unable to open file");
+    let file = File::open(filepath).expect("Unable to open file");
     // Read file row by row without loading it entirely into memory.
     let buf_reader_lines = BufReader::new(file).lines();
 
