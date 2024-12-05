@@ -1,5 +1,9 @@
 # Advent of Code 2024 - Solutions on Rust
 
+## Challenges
+
+Descriptions and data samples can be found in your own profile at the [Official Advent Of Code 2024](https://adventofcode.com/2024/) page.
+
 ## Usage
 The responses for the challenges can be executed by passing 2 parameters to the CLI respecting the example taxonomy.
 1. challenge name 
