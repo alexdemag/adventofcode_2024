@@ -86,7 +86,7 @@ pub fn execute(filepath: String){
         row
     }).collect::<Vec<Vec<char>>>();
 
-    let mut guards: Vec<Guard> = Vec::new();
+    let mut guards: Vec<Guard> = Vec::new(); // I thought it would be necessary to have multiple guards on part 2. Oh well.
 
     lab_map.iter().enumerate().for_each(|(i_x, x)|{
         x.iter().enumerate().for_each(|(i_y, y)| {

@@ -124,7 +124,7 @@ pub fn execute(filepath: String){
 
     lab_map.iter().enumerate().for_each(|(i_x, x)|{
         x.iter().enumerate().for_each(|(i_y, y)| {
-            if y == &'^'{ // Search for "^" initial position. if found push it to the guards Vec
+            if y == &'^'{
                 x_limit = lab_map.len();
                 y_limit = lab_map[0].len();
                 initial_position = (i_x, i_y);
