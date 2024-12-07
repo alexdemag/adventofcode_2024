@@ -1,4 +1,4 @@
-# Advent of Code 2024 - Solutions on Rust
+# Advent of Code 2024 - Solutions in Rust
 
 ## Challenges
 
