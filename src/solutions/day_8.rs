@@ -4,10 +4,10 @@ use num_traits::abs;
 
 use super::utils::load_file;
 
-struct Tower<'a>{
+struct Tower{
     x: usize,
     y: usize,
-    freq: &'a char
+    freq: char
 }
 #[derive(PartialEq,Eq,Hash)]
 struct Node{
@@ -24,7 +24,7 @@ enum Slope{
     INVALID
 }
 
-fn find_slope_and_towers_in_order<'a>(tower_1: &'a Tower, tower_2: &'a Tower) -> (Slope, &'a Tower<'a>, &'a Tower<'a>){
+fn find_slope_and_towers_in_order<'a>(tower_1: &'a Tower, tower_2: &'a Tower) -> (Slope, &'a Tower, &'a Tower){
     let mut t1 = tower_1;
     let mut t2 = tower_2;
     let mut slope = Slope::INVALID;
@@ -198,9 +198,9 @@ fn part_1(input: Vec<Vec<char>>) -> usize{
     let mut distinct_towers: HashSet<char> = HashSet::new();
 
     // Run over map, get towers
-    input.iter().enumerate().for_each(|(x,row)| {
-        row.iter().enumerate().for_each(|(y, character)| {
-            if character != &'.'{
+    input.into_iter().enumerate().for_each(|(x,row)| {
+        row.into_iter().enumerate().for_each(|(y, character)| {
+            if character != '.'{
                 distinct_towers.insert(character.clone());
                 towers.push(Tower{x: x, y: y, freq: character});
             }
@@ -211,7 +211,7 @@ fn part_1(input: Vec<Vec<char>>) -> usize{
 
     // Build tower combinations for each tower
     distinct_towers.iter().for_each(|freq|{
-        let tower_comb = towers.iter().filter(|x| x.freq == freq).combinations(2).collect::<Vec<_>>();
+        let tower_comb = towers.iter().filter(|x| x.freq == *freq).combinations(2).collect::<Vec<_>>();
         tower_combinations.extend(tower_comb);
     });
     
@@ -239,9 +239,9 @@ fn part_2(input: Vec<Vec<char>>) -> usize{
     let mut distinct_towers: HashSet<char> = HashSet::new();
 
     // Run over map, get towers
-    input.iter().enumerate().for_each(|(x,row)| {
-        row.iter().enumerate().for_each(|(y, character)| {
-            if character != &'.'{
+    input.into_iter().enumerate().for_each(|(x,row)| {
+        row.into_iter().enumerate().for_each(|(y, character)| {
+            if character != '.'{
                 distinct_towers.insert(character.clone());
                 towers.push(Tower{x: x, y: y, freq: character});
             }
@@ -252,7 +252,7 @@ fn part_2(input: Vec<Vec<char>>) -> usize{
 
     // Build tower combinations for each tower
     distinct_towers.iter().for_each(|freq|{
-        let tower_comb = towers.iter().filter(|x| x.freq == freq).combinations(2).collect::<Vec<_>>();
+        let tower_comb = towers.iter().filter(|x| x.freq == *freq).combinations(2).collect::<Vec<_>>();
         tower_combinations.extend(tower_comb);
     });
     
