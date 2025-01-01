@@ -1,3 +1,4 @@
+pub mod utils;
 pub mod day_1_part_1;
 pub mod day_1_part_2;
 pub mod day_2_part_1;
@@ -12,3 +13,4 @@ pub mod day_6_part_1;
 pub mod day_6_part_2;
 pub mod day_7_part_1;
 pub mod day_7_part_2;
+pub mod day_8;

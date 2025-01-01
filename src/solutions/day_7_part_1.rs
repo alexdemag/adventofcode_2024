@@ -1,6 +1,5 @@
 use std::{fs::File, io::{BufRead, BufReader}, ops::ControlFlow};
 use itertools::Itertools;
-use rayon::prelude::*;
 
 #[derive(Clone,Copy,Debug)]
 enum Operation{
