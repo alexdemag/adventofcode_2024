@@ -36,6 +36,8 @@ fn main() {
         "day_7_part_2" => solutions::day_7_part_2::execute(filepath),
         "day_8_part_1" => solutions::day_8::execute(filepath, 1),
         "day_8_part_2" => solutions::day_8::execute(filepath, 2),
+        "day_9_part_1" => solutions::day_9::execute(filepath, 1),
+        "day_9_part_2" => solutions::day_9::execute(filepath, 2),
         _ => println!{"No challenge found for {} input", challenge}
     }   
 }
